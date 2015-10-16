@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
+        //classpath("com.github.houbie:lesscss-gradle-plugin:1.0.0-less-1.7.0")
+        //classpath("com.eriwen:gradle-js-plugin:1.8.0")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+//apply plugin: 'lesscss'
+//apply plugin: 'js'
+
+jar {
+    baseName = 'gs-actuator-service'
+    version =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("junit:junit")
+    compile("com.google.maps:google-maps-services:0.1.7")
+    compile("se.walkercrou:google-places-api-java:2.1.2")
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
